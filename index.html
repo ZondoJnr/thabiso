@@ -43,39 +43,43 @@
     }
 
     .hero-banner video {
-      position: relative;
-      object-fit: cover;
-      width: 100%; 
-    }
-
-    .banner .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .overlay-text {
+      background: rgba(0, 0, 0, 0.6);
       padding: 1rem;
+      border-radius: 8px;
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw;
+      max-width: 600px;
+      text-align: center;
+      z-index: 2;
     }
 
-    .banner .overlay h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
+    .overlay-text h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
-    .banner .overlay p {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
+    .scroll-down-wrapper {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      z-index: 2;
     }
 
     .scroll-down {
-      margin-top: 20px;
+      margin: 0 auto;
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -88,6 +92,7 @@
 
     .scroll-down i {
       font-size: 18px;
+      color: #fff;
     }
 
     section {
@@ -162,17 +167,24 @@
       text-decoration: underline;
     }
 
+    /* Mobile Adjustments */
     @media (max-width: 768px) {
-      .banner {
-        height: 70vh;
+      .overlay-text {
+        font-size: 3vw;
+        padding: 0.8rem;
       }
 
-      .banner .overlay h1 {
-        font-size: 2rem;
+      .overlay-text h1 {
+        font-size: 1.2rem;
       }
 
-      .banner .overlay p {
-        font-size: 1rem;
+      .card {
+        width: 300px;
+      }
+
+      section {
+        padding-top: 30px;
+        padding-bottom: 40px;
       }
     }
   </style>
@@ -200,14 +212,17 @@
     </div>
   </nav>
 
-  <section class="banner">
-    <video autoplay muted loop playsinline>
+  <!-- HERO BANNER -->
+  <section class="hero-banner">
+    <video autoplay muted loop>
       <source src="banner.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
-    <div class="overlay text-white">
-      <h1>Welcome</h1>
-      <p>Explore my site</p>
-      <div class="scroll-down" onclick="document.getElementById('about-section').scrollIntoView({behavior: 'smooth'});">
+    <div class="overlay-text text-white">
+      <h1 class="mb-2">Welcome</h1>
+    </div>
+    <div class="scroll-down-wrapper d-flex justify-content-center">
+      <div class="scroll-down" onclick="document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });">
         <i class="fas fa-caret-down"></i>
       </div>
     </div>
