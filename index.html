@@ -169,26 +169,39 @@
 
     /* Mobile Adjustments */
     @media (max-width: 768px) {
+      .hero-banner {
+        height: 60vh; /* Reduce height for mobile */
+      }
+
       .hero-banner video {
-        max-height: 200px;
+        height: 100%;
+        object-fit: cover;
       }
 
       .overlay-text {
-        font-size: 3vw;
+        bottom: 40px; /* Reduced from 80px */
+        font-size: 4vw;
         padding: 0.8rem;
       }
 
       .overlay-text h1 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
       }
 
-      .card {
-        width: 300px;
+      .scroll-down-wrapper {
+        bottom: 10px;
+        display: flex;
+        justify-content: center;
       }
 
       section {
         padding-top: 30px;
         padding-bottom: 40px;
+      }
+
+      .card {
+        width: 90%;
+        margin: 0 auto;
       }
     }
   </style>
