@@ -48,7 +48,8 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: cover; /* FIXED: changed from contain to cover */
+      object-fit: cover;
+      object-position: center;
       z-index: -1;
       background-color: black;
     }
@@ -159,7 +160,8 @@
 
     @media (max-width: 768px) {
       .banner video {
-        object-fit: cover; /* FIXED for mobile as well */
+        object-fit: cover;
+        object-position: center center;
       }
 
       .banner .overlay h1 {
@@ -168,6 +170,21 @@
 
       .banner .overlay p {
         font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .banner video {
+        height: 100%;
+        width: 100%;
+      }
+
+      .banner .overlay h1 {
+        font-size: 1.75rem;
+      }
+
+      .banner .overlay p {
+        font-size: 0.95rem;
       }
     }
   </style>
